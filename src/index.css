@@ -59,3 +59,49 @@ body::after {
   background: rgba(249, 115, 22, 0.25);
   color: #fff;
 }
+
+/* ── Animated Border ── */
+.animated-border {
+  overflow: hidden;
+  z-index: 0;
+  isolation: isolate;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%;
+  height: 250%;
+  aspect-ratio: 1;
+  background: conic-gradient(from 0deg,
+      transparent 0deg,
+      transparent 160deg,
+      #f97316 180deg,
+      transparent 200deg,
+      transparent 360deg);
+  transform: translate(-50%, -50%);
+  animation: rotate-border 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate-border {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
