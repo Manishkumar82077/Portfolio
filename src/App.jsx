@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="flex flex-col lg:items-center">
       <div
-        className={`relative z-50 px-4 pt-4 flex justify-center lg:pt-0 lg:fixed lg:transition-all lg:duration-500 lg:ease-out lg:left-0 lg:w-1/4 ${isNavDocked
+        className={`relative z-50 px-4 pt-2 flex justify-center lg:pt-0 lg:fixed lg:transition-all lg:duration-500 lg:ease-out lg:left-0 lg:w-1/4 ${isNavDocked
           ? "lg:left-auto lg:right-6 lg:top-1/2 lg:w-auto lg:px-0 lg:justify-end lg:-translate-y-1/2"
           : "lg:top-4 lg:left-0 lg:right-0 lg:w-full lg:px-4 lg:justify-center lg:translate-y-0"
           }`}
@@ -94,11 +94,11 @@ function App() {
           onContactClick={() => scrollToSection(contactRef)}
         />
       </div>
-      <div className="pt-8 lg:pt-24 flex flex-col sm:max-w-4/5 xl:flex-row 2xl:max-w-1/2 lg:max-w-full xl:max-w-[80%] gap-10 ">
+      <div className="pt-2 lg:pt-24 flex flex-col sm:max-w-4/5 xl:flex-row 2xl:max-w-1/2 lg:max-w-full xl:max-w-[80%] gap-16 lg:gap-10">
         <div className="max-w-[90%] m-auto lg:m-0">
           <Sidebar />
         </div>
-        <div className="flex flex-col gap-20 max-w-[90%] m-auto ">
+        <div className="flex flex-col gap-10 md:gap-20 max-w-[90%] m-auto ">
           <Intro ref={introRef} />
           <RecentProjects ref={projectsRef} />
           <Experience ref={experienceRef} />

@@ -12,28 +12,30 @@ const Intro = React.forwardRef(function Intro(props, ref) {
     <section
       ref={ref}
       data-name="Intro"
-      className="scroll-mt-28 flex flex-col w-full gap-10 items-center md:items-start"
+      className="scroll-mt-28 flex flex-col w-full gap-8 md:gap-10 items-center md:items-start pt-16 md:pt-0"
     >
       <div>
         <Heading FWord="SOFTWARE" LWord="ENGINEER" />
       </div>
 
-      <div className="md:pr-45">
+      <div className="md:pr-20 lg:pr-45 text-center md:text-left">
         <Paragraph para="Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products." />
       </div>
 
       {/* Stats */}
-      <div className="flex w-full lg:w-1/2 gap-5 md:gap-20">
+      <div className="flex flex-wrap justify-center md:justify-start w-full gap-8 md:gap-20">
         {[
           { count: "1+", label: "YEARS OF EXPERIENCE" },
           { count: "3+", label: "PROJECTS COMPLETED" },
           { count: "2+", label: "CLIENTS WORLDWIDE" },
         ].map((stat, i) => (
-          <div key={i} className="flex flex-col items-center group">
+          <div key={i} className="flex flex-col items-center md:items-start group">
             <h1 className={`${Hstyle} group-hover:text-orange-500 transition-colors duration-300`}>
               {stat.count}
             </h1>
-            <Paragraph para={stat.label} />
+            <div className="max-w-[100px] md:max-w-none">
+              <Paragraph para={stat.label} />
+            </div>
           </div>
         ))}
       </div>
