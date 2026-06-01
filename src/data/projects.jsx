@@ -12,25 +12,26 @@ import {
   SiJavascript,
   SiRedux,
   SiPostgresql,
+  SiMongodb,
 } from "react-icons/si";
 import React from "react";
 
 export const projects = [
   {
     id: 1,
-    link: "https://e-commerce-product-page-beta-sand.vercel.app/",
-    pic: "project1.png",
-    heading: "Simple E-Commerce Page",
-    discr: "Product Listing + Add to Cart",
+    link: "https://stay-safe-seven.vercel.app/",
+    pic: "staysafe.png",
+    heading: "Stay Safe, Find A Hostel",
+    discr: "A Hostel Booking System",
     tags: [
-      { name: "React", icon: <FaReact color="#61DAFB" /> },
+      { name: "Mongo", icon: <SiMongodb color="#47A248" /> },
+      { name: "Nextjs", icon: <RiNextjsLine color="#FFFFFF" /> },
       { name: "Tailwind", icon: <RiTailwindCssFill color="#06B6D4" /> },
-      { name: "JS", icon: <SiJavascript color="#F7DF1E" /> },
     ],
   },
   {
     id: 2,
-    link: "https://quiz-d7129dioh-abdullah-warraich-chs-projects.vercel.app/",
+    link: "https://quiz-sooty-sigma-47.vercel.app/homepage",
     pic: "project2.png",
     heading: "Quiz App",
     discr: "A Simple Quiz Application",
@@ -64,4 +65,16 @@ export const projects = [
       { name: "Tailwind", icon: <RiTailwindCssFill color="#06B6D4" /> },
     ],
   },
+  {
+    id: 5,
+    link: "https://e-commerce-product-page-beta-sand.vercel.app/",
+    pic: "project1.png",
+    heading: "Simple E-Commerce Page",
+    discr: "Product Listing + Add to Cart",
+    tags: [
+      { name: "React", icon: <FaReact color="#61DAFB" /> },
+      { name: "Tailwind", icon: <RiTailwindCssFill color="#06B6D4" /> },
+      { name: "JS", icon: <SiJavascript color="#F7DF1E" /> },
+    ],
+  }
 ];
