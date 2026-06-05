@@ -9,10 +9,16 @@ const Experience = React.forwardRef(function Experience(props, ref) {
         <Heading FWord="RELEVANT" LWord="EXPERIENCE" />
       </div>
       <div className="mt-10 stagger-reveal">
+                <ExperienceCard
+          heading="Junior Frontend Developer"
+          para="Currently working as a Frontend Developer at a software house, contributing to the development of responsive user interfaces using HTML, CSS, JavaScript, React, and Next.js."
+          date="April, 2026 – Present"
+          active
+        />
         <ExperienceCard
           heading="React JS Intern"
-          para="Currently working as a Frontend Intern at a software house, contributing to the development of responsive user interfaces using HTML, CSS, JavaScript, and React."
-          date="Dec 22, 2025 – Present"
+          para="Previously worked as a Frontend Intern at a software house, contributing to the development of responsive user interfaces using HTML, CSS, JavaScript, and React."
+          date="Dec , 2025 – April, 2026"
         />
         <ExperienceCard
           heading="IT Intern"

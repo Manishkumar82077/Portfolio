@@ -2,14 +2,14 @@ import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsBriefcase } from "react-icons/bs";
 
-function ExperienceCard({ heading, para, date }) {
+function ExperienceCard({ heading, para, date, active }) {
   return (
     <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 p-4 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] group border border-transparent transition-all duration-500 hover:bg-white/[0.03] hover:border-white/[0.08] mb-3 backdrop-blur-sm relative overflow-hidden">
       {/* Subtle background glow on hover */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      <div className={`absolute -inset-1 bg-gradient-to-r from-orange-500/10 to-transparent ${active ? 'opacity-100' : 'opacity-0'}  group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`}/>
 
       {/* Icon badge */}
-      <div className="shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-orange-500/10 text-orange-500 border border-orange-500/20 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+      <div className={`shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl ${active ? 'bg-orange-500' : ' bg-orange-500/10'} ${active ? 'text-white' : 'text-orange-500'} border border-orange-500/20 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(249,115,22,0.1)]`}>
         <BsBriefcase className="w-5 h-5 sm:w-6 sm:h-6" />
       </div>
 
