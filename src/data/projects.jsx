@@ -19,9 +19,9 @@ import React from "react";
 export const projects = [
   {
     id: 1,
-    link: "https://stay-safe-seven.vercel.app/",
+    link: "https://rehloo.vercel.app/",
     pic: "staysafe.png",
-    heading: "Stay Safe, Find A Hostel",
+    heading: "Reloo, Find A Hostel",
     discr: "A Hostel Booking System",
     tags: [
       { name: "Mongo", icon: <SiMongodb color="#47A248" /> },
