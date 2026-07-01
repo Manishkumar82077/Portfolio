@@ -20,8 +20,8 @@ export const projects = [
   {
     id: 1,
     link: "https://rehloo.vercel.app/",
-    pic: "staysafe.png",
-    heading: "Reloo, Find A Hostel",
+    pic: "rehloo.png",
+    heading: "Rehloo, Find A Hostel",
     discr: "A Hostel Booking System",
     tags: [
       { name: "Mongo", icon: <SiMongodb color="#47A248" /> },
