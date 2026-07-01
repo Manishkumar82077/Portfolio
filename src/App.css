@@ -107,3 +107,33 @@
     filter: none !important;
   }
 }
+
+/* ── Sidebar image skeleton & fade-in ── */
+.sidebar-skeleton {
+  background: linear-gradient(
+    110deg,
+    #2a2724 8%,
+    #3a3632 18%,
+    #2a2724 33%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.sidebar-img-hidden {
+  opacity: 0;
+}
+
+.sidebar-img-visible {
+  opacity: 1;
+  transition: opacity 400ms ease-out;
+}

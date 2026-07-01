@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 
@@ -16,15 +16,31 @@ const socialLinks = [
 ];
 
 function Sidebar() {
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
     <div className="animated-border relative flex flex-col p-[2px] rounded-2xl lg:sticky top-20 shadow-2xl">
       <div className="bg-[#1a1816] p-5 lg:p-10 rounded-2xl items-center gap-8 flex flex-col">
-        {/* Full image — no cropping */}
-        <div className="relative group w-full overflow-hidden rounded-2xl">
+        {/* Full image — no cropping, with reserved space & skeleton */}
+        <div
+          className="relative group w-full overflow-hidden rounded-2xl"
+          style={{ aspectRatio: "533 / 800" }}
+        >
+          {/* Skeleton shimmer — visible until image loads */}
+          {!imgLoaded && (
+            <div className="sidebar-skeleton absolute inset-0 rounded-2xl" />
+          )}
           <img
-            src="Media.jpg"
+            src="/Media.jpg"
             alt="Abdullah"
-            className="w-full rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+            width={533}
+            height={800}
+            loading="eager"
+            fetchpriority="high"
+            onLoad={() => setImgLoaded(true)}
+            className={`w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-500 group-hover:scale-[1.03] ${
+              imgLoaded ? "sidebar-img-visible" : "sidebar-img-hidden"
+            }`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-2xl" />
           <span className="absolute bottom-3 left-3 text-white text-xs font-medium bg-orange-500/80 px-2.5 py-1 rounded-full backdrop-blur-sm">
