@@ -5,7 +5,7 @@ import { SiLeetcode, SiCodeforces } from "react-icons/si";
 export const profile = {
   name: "Manish Kumar",
   role: "Software Engineer",
-  avatar: "/public/profile.jpeg",
+  avatar: "/profile.jpeg",
   availabilityLabel: "Available for Work",
   bio: "who builds **multi-tenant platforms**, **scalable microservices**, and **AI-powered systems**.",
   email: "manishkumar7543811190@gmail.com",
