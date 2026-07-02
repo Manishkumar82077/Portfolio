@@ -1,22 +1,6 @@
 import React from "react";
 import Heading from "../Components/Heading";
-import SkillCard from "../Components/SkillCard";
-import { FaFigma, FaReact, FaGithub, FaBootstrap } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { RiNextjsLine } from "react-icons/ri";
-import { IoLogoJavascript } from "react-icons/io";
-import { IoLogoCss3 } from "react-icons/io5";
-
-const skills = [
-  { logo: <FaReact />, title: "React JS", disc: "UI Library", color: "#61DAFB" },
-  { logo: <FaFigma />, title: "Figma", disc: "Design Tool", color: "#F24E1E" },
-  { logo: <RiTailwindCssFill />, title: "TailWind", disc: "Utility-First CSS", color: "#06B6D4" },
-  { logo: <RiNextjsLine />, title: "Next JS", disc: "React Framework", color: "#FFFFFF" },
-  { logo: <IoLogoJavascript />, title: "JavaScript", disc: "Client-side scripting", color: "#F7DF1E" },
-  { logo: <FaGithub />, title: "Github", disc: "Code collaboration", color: "#E6EDF3" },
-  { logo: <FaBootstrap />, title: "BootStrap", disc: "CSS Framework", color: "#7952B3" },
-  { logo: <IoLogoCss3 />, title: "CSS", disc: "Responsive styling", color: "#264DE4" },
-];
+import { skillCategories } from "../data/skills.jsx";
 
 const Skills = React.forwardRef(function Skills(props, ref) {
   return (
@@ -24,9 +8,31 @@ const Skills = React.forwardRef(function Skills(props, ref) {
       <div className="mb-8">
         <Heading FWord="TECHNICAL" LWord="SKILLS" />
       </div>
-      <div className="grid lg:grid-cols-2 gap-3 stagger-reveal">
-        {skills.map((skill, i) => (
-          <SkillCard key={i} {...skill} />
+
+      {/* All skills as small icon + name chips, grouped by category */}
+      <div className="flex flex-col gap-7 stagger-reveal">
+        {skillCategories.map((category) => (
+          <div key={category.title} className="flex flex-col gap-3">
+            <h3 className="text-gray-500 text-xs font-bold tracking-[0.2em] uppercase">
+              {category.title}
+            </h3>
+            <div className="flex flex-wrap gap-2.5">
+              {category.items.map((item) => (
+                <span
+                  key={item.name}
+                  className="group flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium bg-white/[0.04] border border-white/[0.06] text-gray-300 hover:bg-white/[0.07] hover:border-orange-500/40 hover:text-white transition-all duration-300"
+                >
+                  <span
+                    className="text-base flex items-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ color: item.color }}
+                  >
+                    {item.icon}
+                  </span>
+                  {item.name}
+                </span>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </section>

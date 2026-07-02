@@ -1,9 +1,9 @@
 import React from "react";
 import Heading from "../Components/Heading";
 import Paragraph from "../Components/Paragraph";
-import { SiAltiumdesigner } from "react-icons/si";
-import { FaCode } from "react-icons/fa";
+import { FaReact, FaCode } from "react-icons/fa";
 import { CiLocationArrow1 } from "react-icons/ci";
+import { profile, stats } from "../data/profile";
 
 const Hstyle = "text-white font-bold text-3xl lg:text-5xl";
 
@@ -19,16 +19,12 @@ const Intro = React.forwardRef(function Intro(props, ref) {
       </div>
 
       <div className="md:pr-20 lg:pr-45 text-center md:text-left">
-        <Paragraph para="Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products." />
+        <Paragraph para={profile.introParagraph} />
       </div>
 
       {/* Stats */}
       <div className="flex flex-wrap justify-center md:justify-start w-full gap-8 md:gap-20">
-        {[
-          { count: "1+", label: "YEARS OF EXPERIENCE" },
-          { count: "3+", label: "PROJECTS COMPLETED" },
-          { count: "2+", label: "CLIENTS WORLDWIDE" },
-        ].map((stat, i) => (
+        {stats.map((stat, i) => (
           <div key={i} className="flex flex-col items-center md:items-start group">
             <h1 className={`${Hstyle} group-hover:text-orange-500 transition-colors duration-300`}>
               {stat.count}
@@ -48,13 +44,13 @@ const Intro = React.forwardRef(function Intro(props, ref) {
           <div className="absolute -right-8 -top-8 w-40 h-40 bg-orange-500/10 rounded-full blur-[60px] group-hover:bg-orange-500/20 transition-all duration-700 animate-float"></div>
 
           <div className="p-4 bg-orange-500/10 rounded-2xl w-fit border border-orange-500/20 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">
-            <SiAltiumdesigner size={32} />
+            <FaReact size={32} />
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Design Stack</h3>
+            <h3 className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Frontend Stack</h3>
             <h1 className="text-white font-bold text-2xl leading-tight">
-              Figma, PhotoShop <br /> & Canva Specialist
+              React, Next.js, Tailwind <br /> & TypeScript
             </h1>
           </div>
 
@@ -74,9 +70,9 @@ const Intro = React.forwardRef(function Intro(props, ref) {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Development Stack</h3>
+            <h3 className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Backend Stack</h3>
             <h1 className="text-white font-bold text-2xl leading-tight">
-              React, Next, Tailwind, <br /> Bootstrap & JQuery
+              Node, Express, MongoDB <br /> & PostgreSQL
             </h1>
           </div>
 

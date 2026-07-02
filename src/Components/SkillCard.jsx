@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// eslint-disable-next-line no-unused-vars
 function SkillCard({ logo, title, disc, color }) {
   const [hovered, setHovered] = useState(false);
 
@@ -16,7 +17,7 @@ function SkillCard({ logo, title, disc, color }) {
       onMouseLeave={() => setHovered(false)}
     >
       {/* Icon box — original h-20 w-20 text-5xl */}
-      <div
+      {/* <div
         className="h-20 w-20 text-5xl flex justify-center items-center rounded-[1.5rem] transition-all duration-500 shrink-0 border border-white/[0.03]"
         style={{
           backgroundColor: hovered ? `${color}25` : "rgba(37,35,33,0.8)",
@@ -26,7 +27,7 @@ function SkillCard({ logo, title, disc, color }) {
         }}
       >
         {logo}
-      </div>
+      </div> */}
 
       <div className="flex flex-col gap-1">
         <h1
@@ -35,7 +36,7 @@ function SkillCard({ logo, title, disc, color }) {
         >
           {title}
         </h1>
-        <p className="text-gray-500 text-sm font-inter leading-relaxed">{disc}</p>
+        <p className="text-gray-500 text-sm font-inter leading-relaxed">{disc}</p> 
       </div>
     </div>
   );

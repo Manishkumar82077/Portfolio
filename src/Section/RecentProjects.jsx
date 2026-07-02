@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Heading from "../Components/Heading";
 import { IoIosArrowForward } from "react-icons/io";
 import RecentProjectCard from "../Components/RecentProjectCard";
@@ -7,11 +8,14 @@ import { projects } from "../data/projects.jsx";
 const RecentProjects = React.forwardRef(function RecentProjects(props, ref) {
   const [visibleCount, setVisibleCount] = useState(3);
 
+  // Only active projects are shown on the home page.
+  const activeProjects = projects.filter((project) => project.active);
+
   const showMoreProjects = () => {
     setVisibleCount((prevCount) => prevCount + 3);
   };
 
-  const hasMore = visibleCount < projects.length;
+  const hasMore = visibleCount < activeProjects.length;
 
   return (
     <section ref={ref} data-name="RecentProjects" className="scroll-mt-28 flex flex-col gap-10">
@@ -23,16 +27,16 @@ const RecentProjects = React.forwardRef(function RecentProjects(props, ref) {
         {/* Vertical connector line */}
         <div className="absolute left-10 md:left-12 top-0 bottom-0 w-px bg-white/[0.03] z-0 hidden lg:block" />
 
-        {projects.slice(0, visibleCount).map((project) => (
-          <a
+        {activeProjects.slice(0, visibleCount).map((project) => (
+          <Link
             key={project.id}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            to={`/projects/${project.id}`}
+            aria-label={`View details for ${project.heading}`}
             className="relative z-10 block"
           >
             <RecentProjectCard
-              pic={project.pic}
+              pic={project.images?.[0]}
+              active={project.active}
               heading={project.heading}
               discr={project.discr}
               tags={project.tags.map((tag) => (
@@ -41,7 +45,7 @@ const RecentProjects = React.forwardRef(function RecentProjects(props, ref) {
                 </div>
               ))}
             />
-          </a>
+          </Link>
         ))}
       </div>
 

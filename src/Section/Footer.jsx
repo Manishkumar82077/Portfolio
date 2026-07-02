@@ -6,7 +6,7 @@ function Footer() {
       <p className="text-sm tracking-wide">
         Developed by{" "}
         <span className="text-orange-500 hover:text-orange-400 transition-colors duration-200 cursor-default font-medium">
-          GTechSources
+          Manish Kumar
         </span>
       </p>
     </div>

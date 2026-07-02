@@ -1,5 +1,6 @@
 import React from "react";
 import Heading from "../Components/Heading";
+import { contactConfig } from "../data/contact";
 
 const Contact = React.forwardRef(function Contact(props, ref) {
   const labelStyle = "text-gray-400 text-xs font-medium tracking-wide";
@@ -13,7 +14,7 @@ const Contact = React.forwardRef(function Contact(props, ref) {
         <Heading FWord="LET'S WORK" LWord="TOGETHER" />
       </div>
 
-      <form action="https://formspree.io/f/xnjbebqr" method="POST" className="bg-[#1c1b19]/40 backdrop-blur-xl border border-white/[0.05] p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+      <form action={contactConfig.formEndpoint} method="POST" className="bg-[#1c1b19]/40 backdrop-blur-xl border border-white/[0.05] p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
         {/* Decorative background glow */}
         <div className="absolute -top-24 -right-24 w-64 h-64 bg-orange-500/5 rounded-full blur-[80px] group-hover:bg-orange-500/10 transition-all duration-700"></div>
         <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-orange-500/5 rounded-full blur-[80px] group-hover:bg-orange-500/10 transition-all duration-700"></div>
@@ -38,12 +39,14 @@ const Contact = React.forwardRef(function Contact(props, ref) {
               <select
                 name="subject"
                 id="subject"
-                defaultValue="freelance"
+                defaultValue={contactConfig.subjects[0]?.value}
                 className={`${inpStyle} appearance-none cursor-pointer`}
               >
-                <option value="freelance" className={opStyle}>Freelance Project</option>
-                <option value="job" className={opStyle}>Job Opportunity</option>
-                <option value="hi" className={opStyle}>Just Saying Hi!</option>
+                {contactConfig.subjects.map((subject) => (
+                  <option key={subject.value} value={subject.value} className={opStyle}>
+                    {subject.label}
+                  </option>
+                ))}
               </select>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
