@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaMapMarkerAlt, FaRegCalendarAlt } from "react-icons/fa";
-import Navbar from "../Components/Navbar";
+import DockingNav from "../Components/DockingNav";
 import Footer from "../Section/Footer";
 import HighlightText from "../Components/HighlightText";
 import { getExperienceById } from "../data/experiences";
@@ -15,17 +15,14 @@ function ExperienceDetail() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="relative z-50 px-4 pt-2 flex justify-center lg:pt-4 lg:fixed lg:top-4 lg:left-0 lg:right-0 lg:w-full lg:px-4">
-        <Navbar
-          isDocked={false}
-          activeSection="experience"
-          onHomeClick={goHome}
-          onProjectsClick={goHome}
-          onExperienceClick={goHome}
-          onSkillsClick={goHome}
-          onContactClick={goHome}
-        />
-      </div>
+      <DockingNav
+        activeSection="experience"
+        onHomeClick={goHome}
+        onProjectsClick={goHome}
+        onExperienceClick={goHome}
+        onSkillsClick={goHome}
+        onContactClick={goHome}
+      />
 
       <div className="flex-1 w-full max-w-3xl px-4 sm:px-6 pt-8 lg:pt-28 pb-16">
         {!experience ? (

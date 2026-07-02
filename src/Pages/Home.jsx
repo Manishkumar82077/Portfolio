@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import Navbar from "../Components/Navbar";
+import DockingNav from "../Components/DockingNav";
 import Sidebar from "../Components/Sidebar";
 import Intro from "../Section/Intro";
 import RecentProjects from "../Section/RecentProjects";
@@ -9,7 +9,6 @@ import Contact from "../Section/Contact";
 import Footer from "../Section/Footer";
 
 function Home() {
-  const [isNavDocked, setIsNavDocked] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const introRef = useRef(null);
   const projectsRef = useRef(null);
@@ -18,16 +17,6 @@ function Home() {
   const contactRef = useRef(null);
   const scrollToSection = useCallback((sectionRef) => {
     sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsNavDocked(window.scrollY > 120);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -77,22 +66,14 @@ function Home() {
 
   return (
     <div className="flex flex-col lg:items-center">
-      <div
-        className={`relative z-50 px-4 pt-2 flex justify-center lg:pt-0 lg:fixed lg:transition-all lg:duration-500 lg:ease-out lg:left-0 lg:w-1/4 ${isNavDocked
-          ? "lg:left-auto lg:right-6 lg:top-1/2 lg:w-auto lg:px-0 lg:justify-end lg:-translate-y-1/2"
-          : "lg:top-4 lg:left-0 lg:right-0 lg:w-full lg:px-4 lg:justify-center lg:translate-y-0"
-          }`}
-      >
-        <Navbar
-          isDocked={isNavDocked}
-          activeSection={activeSection}
-          onHomeClick={() => scrollToSection(introRef)}
-          onProjectsClick={() => scrollToSection(projectsRef)}
-          onExperienceClick={() => scrollToSection(experienceRef)}
-          onSkillsClick={() => scrollToSection(skillsRef)}
-          onContactClick={() => scrollToSection(contactRef)}
-        />
-      </div>
+      <DockingNav
+        activeSection={activeSection}
+        onHomeClick={() => scrollToSection(introRef)}
+        onProjectsClick={() => scrollToSection(projectsRef)}
+        onExperienceClick={() => scrollToSection(experienceRef)}
+        onSkillsClick={() => scrollToSection(skillsRef)}
+        onContactClick={() => scrollToSection(contactRef)}
+      />
       <div className="w-full max-w-2xl xl:max-w-6xl mx-auto px-4 pt-2 lg:pt-24 flex flex-col xl:flex-row items-center xl:items-stretch gap-16 lg:gap-10">
         <div className="w-full xl:w-auto flex justify-center items-start shrink-0">
           <Sidebar />
